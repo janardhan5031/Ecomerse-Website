@@ -26,10 +26,19 @@ const server=http.createServer((req,res)=>{
 
     //resoponses from the server
 
-    if(url!=='/message' && method==='POST') {
-        fs.writeFileSync('message.txt','DUMMY');
+    if(url==='/message' && method==='POST') {
+        const body=[];
+        req.on('data',(chunk)=>{
+            console.log(chunk);
+            body.push(chunk);
+        })
+        req.on('end',()=>{
+            const parsebody=Buffer.concat(body).toString();
+            console.log(parsebody);
+            fs.writeFileSync('/message.txt',parsebody);
+        })
         res.statusCode=302;
-        res.setHeader('Location','/');
+        res.setHeader('location','/');
         return res.end();
     }
     res.setHeader('Contect-Type','text/html');
