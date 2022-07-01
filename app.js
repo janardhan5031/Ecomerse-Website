@@ -1,7 +1,20 @@
 const http=require('http');
 const fs = require('fs');
 
+//reading the file 
+
+
 const server=http.createServer((req,res)=>{
+
+    fs.readFile('message.txt',(err,line)=>{
+        if(err) throw err;
+        const arr=line.toString().split(',');
+        arr.forEach((value)=>{
+            res.write(`<body>${value}</body>`)
+            //console.log(value);
+        });
+    });
+
     //requests to the server
     //console.log(req.url,req.method,req.headers);
     const url=req.url;
@@ -23,17 +36,23 @@ const server=http.createServer((req,res)=>{
             console.log(chunk);
             body.push(chunk);
         })
-        req.on('end',()=>{
+        return req.on('end',()=>{
             const parsebody=Buffer.concat(body).toString();
             console.log(parsebody);
             const message=parsebody.split('=')[1];
-            fs.writeFileSync('message.txt',message);
+            let data=fs.createWriteStream('message.txt',{   
+                //this method allows us to store multiple 
+                //input data in a file
+                flags:'a'   // 'a' means appending (old data will be preserved)
+            });
+            data.write(message);
+            data.write(',');
+            res.statusCode=302;
+            res.setHeader('location','/');
+            return res.end();
         })
-        res.statusCode=302;
-        res.setHeader('location','/');
-        return res.end();
     }
-    res.setHeader('Contect-Type','text/html');
+    //res.setHeader('Contect-Type','text/html');
     res.write(`
     <html>
         <head>
