@@ -1,0 +1,21 @@
+{
+  "name": "node-js",
+  "version": "1.0.0",
+  "description": "my first npm",
+  "main": "Hello World.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "start-server": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janardhan5031/Node-JS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janardhan5031/Node-JS/issues"
+  },
+  "homepage": "https://github.com/janardhan5031/Node-JS#readme"
+}
