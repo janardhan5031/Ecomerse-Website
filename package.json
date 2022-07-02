@@ -5,7 +5,7 @@
   "main": "Hello World.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "start-server": "node app.js"
   },
   "repository": {
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/janardhan5031/Node-JS/issues"
   },
-  "homepage": "https://github.com/janardhan5031/Node-JS#readme"
+  "homepage": "https://github.com/janardhan5031/Node-JS#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  }
 }
