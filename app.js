@@ -1,7 +1,17 @@
-const http=require('http');
 
-const callbackfun=require('./routes');
+const express=require('express');
 
-const server=http.createServer(callbackfun[1]);
+const app=express();
 
-server.listen(4000);
+app.use((req,res,next)=>{
+    console.log('in the middleware function');
+    next(); //Allows the request to continue to the next middleware in line
+});
+
+app.use((req,res,next)=>{
+    console.log('In another middleware!');
+    res.send('<h1> hello to node js </h1>');
+});
+
+app.listen(4000);   // listen method will create server by importing http and keep listening
+
