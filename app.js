@@ -9,11 +9,11 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 app.use( '/add-product' ,(req,res,next)=>{
     //console.log('in the middleware function');
-    res.send('<form action="/product" method="post"><input type="text" name="title"><button type="submit">send</button></form>');
+    res.send('<form action="/product" method="post">product name<input type="text" name="title"><br>volume<input type="text" name="volume"><button type="submit">send</button></form>');
 });
 
 app.use('/product',(req,res,next)=>{
-    console.log(req.body.title);  //print the body of request
+    console.log(req.body.title,req.body.volume);  //print the body of request
     res.redirect('/');
 });
 
