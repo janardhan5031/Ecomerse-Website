@@ -10,7 +10,7 @@ const shopRouter=require('./routes/shop');
 // it takes the incoming requests and process (parse it).
 app.use(bodyParser.urlencoded({extended:false}));
 
-app.use(adminRountes);
+app.use('/admin', adminRountes);
 app.use(shopRouter);
 
 app.use((req,res,next)=>{
