@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname,'public')));
 //create path to access the css files
 
 
-app.use(adminRountes);
+app.use(adminRountes.routes);
 app.use(shopRouter);
 app.use(contact);
 
