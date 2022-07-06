@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 
 const app=express();
 
+app.set('view engine', 'pug');  //template engine to render the pug files
+app.set('views','views');   //folder to see the pug file by the engine
+
 const adminRountes=require('./routes/admin');
 const shopRouter=require('./routes/shop');
 const contact=require('./routes/contact');
