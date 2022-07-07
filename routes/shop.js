@@ -12,7 +12,7 @@ router.get('/', (req,res,next)=>{
 
     console.log(admindata.products);
     
-    res.render('shop',{products:prdcts,docTitle:'shop'});
+    res.render('shop',{products:prdcts, docTitle:'shop', path:'/'});
 
     //res.sendFile(path.join(__dirname,'../','/views','/shop.html'));
 });

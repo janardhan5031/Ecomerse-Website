@@ -1,0 +1,12 @@
+extends layouts/main_layout.pug 
+
+block content   
+    h2(styel="align-items-center")
+    p Contact US
+        form(action="/success" method="post")
+            p Name
+                 input.inputs(type="text" name="name")
+            p Email
+                input.inputs(type="text" name="email")
+            button.inputs_btn(type="submit") send
+        

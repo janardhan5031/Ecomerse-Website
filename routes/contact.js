@@ -4,7 +4,7 @@ const path= require('path');
 const route=express.Router();
 
 route.get('/contactus', (req,res,next)=>{
-    res.sendFile(path.join(__dirname,'../','views','contact us.html'));
+    res.render('contact_us',{doctTitle:'contact us',path:'/contactus'});
 });
 
 route.post('/success',(req,res,next)=>{
@@ -12,7 +12,7 @@ route.post('/success',(req,res,next)=>{
 });
 
 route.get('/submited', (req,res,next)=>{
-    res.sendFile(path.join(__dirname,'../','views','success.html'));
+    res.render('success');
 });
 
 module.exports=route;
