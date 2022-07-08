@@ -4,7 +4,7 @@ const path= require('path');
 const route=express.Router();
 
 route.get('/contactus', (req,res,next)=>{
-    res.render('contact',{doctTitle:'contact',path:'/contactus'});
+    res.render('contact',{pageTitle:'contact',path:'/contactus'});
 });
 
 route.post('/success',(req,res,next)=>{
@@ -12,7 +12,7 @@ route.post('/success',(req,res,next)=>{
 });
 
 route.get('/submited', (req,res,next)=>{
-    res.render('success');
+    res.render('success',{pageTitle:'success'});
 });
 
 module.exports=route;
