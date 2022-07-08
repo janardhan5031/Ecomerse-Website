@@ -2,8 +2,11 @@ const path=require('path')
 
 const express=require('express');
 const bodyParser = require('body-parser');  //importing body-parser module
+const errorcontroller=require('./controllers/error');
+//importing the error controller to handel 404 page
 
 const app=express();
+
 
 app.set('view engine', 'ejs');  //template engine to render the pug files
 app.set('views','views');   //folder to see the pug file by the engine
@@ -21,13 +24,11 @@ app.use(express.static(path.join(__dirname,'public')));
 //create path to access the css files in html pages
 
 
-app.use(adminRountes.routes);
+app.use(adminRountes);
 app.use(shopRouter);
 app.use(contact);
 
-app.use((req,res,next)=>{
-    res.status(404).render('404',{pageTitle:'page not found'}); 
-})
+app.use(errorcontroller.error404page);
 
 app.listen(4000); 
 

@@ -1,18 +1,12 @@
 const express=require('express');
-const path= require('path');
+const contactController=require('../controllers/contact');
 
 const route=express.Router();
 
-route.get('/contactus', (req,res,next)=>{
-    res.render('contact',{pageTitle:'contact',path:'/contactus'});
-});
+route.get('/contactus', contactController.contactUsForm);
 
-route.post('/success',(req,res,next)=>{
-    res.redirect('/submited');
-});
+route.post('/success',contactController.formSuccess);
 
-route.get('/submited', (req,res,next)=>{
-    res.render('success',{pageTitle:'success'});
-});
+route.get('/submited', contactController.formSubmited);
 
 module.exports=route;
