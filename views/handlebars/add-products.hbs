@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pageTitle}}</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>  
+    <header class="main-header">
+        <nav class="main-header_nav">
+            <ul class="main-header_ul">
+                <li class="main-header_li" id="list1"><a href="/">shop</a></li>
+                <li class="main-header_li" id="list2"><a class="active" href="/add-product">add-products</a></li>
+                <li class="main-header_li"><a href="/contactus">contact us</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form action="/product" method="post">
+            product name<input class="inputs" type="text" name="title"><br>
+            volume<input class="inputs" type="text" name="volume">
+            <button id="inputs_btn" type="submit">send</button>
+        </form>
+    </main>
+
+    <footer hidden>
+        SHARPENER
+    </footer>
+</body>
+</html>

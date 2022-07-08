@@ -2,12 +2,10 @@ const path=require('path')
 
 const express=require('express');
 const bodyParser = require('body-parser');  //importing body-parser module
-const expressHbs=require('express-handlebars'); //importing handlebars 
 
 const app=express();
 
-app.engine('hbs',expressHbs()); //creating handlebar engine to process
-app.set('view engine', 'hbs');  //template engine to render the pug files
+app.set('view engine', 'ejs');  //template engine to render the pug files
 app.set('views','views');   //folder to see the pug file by the engine
 
 
